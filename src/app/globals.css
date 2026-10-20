@@ -1,0 +1,77 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --surface-elevated: #f1f5f9;
+  --foreground: #0f172a;
+  --foreground-secondary: #64748b;
+  --primary-brand: #0f766e;
+  --primary-brand-hover: #115e59;
+  --secondary-accent: #14b8a6;
+  --border: #e2e8f0;
+  --border-light: #f1f5f9;
+  --status-success: #15803d;
+  --status-warning: #b45309;
+  --status-error: #b91c1c;
+}
+
+html.dark {
+  --background: #0b1220;
+  --surface: #111827;
+  --surface-elevated: #1f2937;
+  --foreground: #f8fafc;
+  --foreground-secondary: #94a3b8;
+  --primary-brand: #2dd4bf;
+  --primary-brand-hover: #14b8a6;
+  --secondary-accent: #2dd4bf;
+  --border: #374151;
+  --border-light: #1f2937;
+  --status-success: #4ade80;
+  --status-warning: #fbbf24;
+  --status-error: #f87171;
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", Oxygen, Ubuntu, Cantarell, sans-serif;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Print styling for GST Invoices */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .print-card {
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
